@@ -1,40 +1,46 @@
 package com.librarymanagement.models;
 
-public class User{
+public abstract class User {
 
     protected String name;
-    protected String UserName;
-    private Role role;
+    protected String userName;
     private String password;
+    private Role role;
 
-    User(String name, String UserName, Role role, String password){
+    User(String name, String userName, String password, Role role){
         this.name = name;
-        this.UserName = UserName;
-        this.role = role;
+        this.userName = userName;
         this.password = password;
-    } //end constructor method
-
-    public String getName(){
-        return name;
+        this.role = role;
     }
 
-    public Role getRole(){
-        return role;
+    // reset passoword
+    public void resetPassword(){
+        this.password = "0000";
+
+        /*
+         * get the user details
+         * save the password for that user
+         */
     }
 
-    public String getUserName(){
-        return UserName;
+    public abstract void profileInfo();
+    // {
+    //     System.out.println("---------------------------");
+    //     System.out.println("Name: " + name);
+    //     System.out.println("UserName: "+ userName);
+    //     System.out.println("Books currently borrowed: ");
+    // }
+
+    // set password
+    public void setPassword(String pass){
+        password = pass;
     }
 
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public void setUserName(String name){
-        this.UserName=name;
+    public String getPassword(){
+        return password;
     }
     
-    public void setPassword(String pass){
-        this.password = pass;
-    }
+    // get userId
+    public abstract String getUserId();
 }
