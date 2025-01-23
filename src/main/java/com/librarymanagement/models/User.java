@@ -7,11 +7,15 @@ public abstract class User {
     private String password;
     private Role role;
 
-    User(String name, String userName, String password, Role role){
+    public User(String name, String userName, String password, Role role){
         this.name = name;
         this.userName = userName;
         this.password = password;
         this.role = role;
+    } //end constructor 1
+
+    public User(){
+
     }
 
     // reset passoword
