@@ -21,7 +21,7 @@ public class AttendantTest{
     Attendant attend;
 
     @BeforeEach
-    public void setup{
+    public void setup(){
 
         attend = new Attendant();
     } // end setup
@@ -38,13 +38,41 @@ public class AttendantTest{
         List<Book> borrowedBook = new ArrayList<>();
         when(user.getBorrowedBooks()).thenReturn(borrowedBook);
 
+        attend.issueBookToUser(book, user);
         // Assert - Array size increase
         assertEquals(1, borrowedBook.size());
         
         // Assert - That the book is the book specified
-        assertTrue(()->borrowedBook.contains(book));
+        assertTrue(borrowedBook.contains(book));
 
     }
+
+    @Test
+    public void returnBookTest(){
+
+        /*
+         * to update
+         * book class - modify availiablity
+         * 
+         */
+        
+         // mock the book class
+         Book book = mock(Book.class);
+
+         // create when instance
+         boolean isAvailable = true;
+         when(book.getAvailablity()).thenReturn(isAvailable);
+
+         // Act
+         attend.returnBook(book);
+
+         // assert
+         assertEquals(true, book.getAvailablity())
+
+
+    }
+
+
 
 
 }
