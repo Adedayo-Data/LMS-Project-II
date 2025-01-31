@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
@@ -67,10 +68,13 @@ public class AttendantTest{
          attend.returnBook(book);
 
          // assert
-         assertEquals(true, book.getAvailablity())
+         verify(book, times(1)).setAvailability(true);
 
-
+         // assertFalse(user.) testing if the book is removed from the structure
+         
     }
+
+
 
 
 

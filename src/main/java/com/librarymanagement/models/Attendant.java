@@ -13,6 +13,13 @@ public class Attendant extends User{
         // TODO 
     } // end constructor 2
 
-    
+    public void issueBookToUser(Book book, User user){
+        // TODO 
+
+    }// End issueBookToUser
+
+    public void returnBook(Book book){
+        // TODO returnBook
+    } // End returnBook
     
 }
